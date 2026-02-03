@@ -1,0 +1,45 @@
+SELECT
+	E.EMPNO,
+	E.ENAME,
+	D.DNAME
+FROM EMP E
+JOIN DEPT D
+ON E.DEPTNO = D.DEPTNO
+ORDER BY D.DNAME ASC, E.ENAME ASC;
+
+-- 사번, 사원명, 급여, 부서명, 지역 조회
+SELECT
+	E.EMPNO,
+	E.ENAME,
+	E.SAL,
+	D.DNAME,
+	D.LOC
+FROM EMP E
+JOIN DEPT D
+ON E.DEPTNO = D.DEPTNO;
+
+DESC EMP;
+DESC DEPT;
+
+-- 직급이 사원이 아닌 직원의 사번, 사원명, 직급, 부서번호, 부서명 조회
+SELECT
+	E.EMPNO,
+	E.ENAME,
+	E.JOB,
+	E.DEPTNO,
+	D.DNAME
+FROM EMP E
+JOIN DEPT D
+ON E.DEPTNO = D.DEPTNO
+WHERE E.JOB != '사원';
+
+-- 부서번호가 10번 혹은 20번인 직원의 사번, 사원명, 부서명, 지역을 조회
+SELECT
+	E.EMPNO,
+	E.ENAME,
+	D.DNAME,
+	D.LOC
+FROM EMP E
+JOIN DEPT D
+ON E.DEPTNO = D.DEPTNO
+WHERE E.DEPTNO IN(10, 20);
